@@ -88,6 +88,7 @@ namespace Asteroid_Belt_Assault
             this.frameCount = frameCount;
             this.playerManager = playerManager;
 
+            
             EnemyShotManager = new ShotManager(
                 texture,
                 new Rectangle(0, 300, 5, 5),
@@ -154,6 +155,7 @@ namespace Asteroid_Belt_Assault
                 {
                     Enemies.RemoveAt(x);
                 }
+
                 else
                 {
                     if ((float)rand.Next(0, 1000) / 10 <= shipShotChance)
@@ -174,6 +176,8 @@ namespace Asteroid_Belt_Assault
                     }
                 }
             }
+
+            
 
             if (Active)
             {

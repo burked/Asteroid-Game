@@ -42,6 +42,7 @@ namespace Asteroid_Belt_Assault
             previousLocation = location;
             currentWaypoint = location;
             EnemySprite.CollisionRadius = enemyRadius;
+            
         }
 
         public void AddWaypoint(Vector2 waypoint)

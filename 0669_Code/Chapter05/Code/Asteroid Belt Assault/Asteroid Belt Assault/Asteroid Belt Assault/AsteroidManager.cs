@@ -18,8 +18,8 @@ namespace Asteroid_Belt_Assault
         private Texture2D texture;
 
         public List<Sprite> Asteroids = new List<Sprite>();
-        private int minSpeed = 60;
-        private int maxSpeed = 120;
+        private int minSpeed = 90;
+        private int maxSpeed = 175;
 
         private Random rand = new Random();
 
@@ -81,16 +81,16 @@ namespace Asteroid_Belt_Assault
                 {
                     case 0:
                         location.X = -initialFrame.Width;
-                        location.Y = rand.Next(0, screenHeight);
+                        location.Y = rand.Next(-screenHeight*2, 0);
                         break;
 
                     case 1:
                         location.X = screenWidth;
-                        location.Y = rand.Next(0, screenHeight);
+                        location.Y = rand.Next(-screenHeight, 0);
                         break;
 
                     case 2:
-                        location.X = rand.Next(0, screenWidth);
+                        location.X = rand.Next(0, screenWidth-40);
                         location.Y = -initialFrame.Height;
                         break;
 
