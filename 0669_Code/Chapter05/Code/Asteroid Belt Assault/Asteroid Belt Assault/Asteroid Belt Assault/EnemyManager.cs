@@ -9,6 +9,7 @@ namespace Asteroid_Belt_Assault
 {
     class EnemyManager
     {
+
         private Texture2D texture;
         private Rectangle initialFrame;
         private int frameCount;
@@ -17,6 +18,9 @@ namespace Asteroid_Belt_Assault
 
         public ShotManager EnemyShotManager;
         private PlayerManager playerManager;
+        private AsteroidManager asteroidManager;
+        private EnemyManager enemyManager;
+
 
         public int MinShipsPerWave = 5;
         public int MaxShipsPerWave = 8;
@@ -25,7 +29,7 @@ namespace Asteroid_Belt_Assault
         private float shipSpawnTimer = 0.0f;
         private float shipSpawnWaitTime = 0.5f;
 
-        private float shipShotChance = 0.2f;
+        private float shipShotChance = 1f/3f;
 
         private List<List<Vector2>> pathWaypoints =
             new List<List<Vector2>>();
@@ -41,12 +45,14 @@ namespace Asteroid_Belt_Assault
             List<Vector2> path0 = new List<Vector2>();
             path0.Add(new Vector2(850, 300));
             path0.Add(new Vector2(-100, 300));
+            
             pathWaypoints.Add(path0);
             waveSpawns[0] = 0;
 
             List<Vector2> path1 = new List<Vector2>();
             path1.Add(new Vector2(-50, 225));
             path1.Add(new Vector2(850, 225));
+          
             pathWaypoints.Add(path1);
             waveSpawns[1] = 0;
 
@@ -74,6 +80,8 @@ namespace Asteroid_Belt_Assault
             path3.Add(new Vector2(-100, 150));
             pathWaypoints.Add(path3);
             waveSpawns[3] = 0;
+
+            
         }
 
         public EnemyManager(
@@ -107,6 +115,7 @@ namespace Asteroid_Belt_Assault
                 pathWaypoints[path][0],
                 initialFrame,
                 frameCount);
+
             for (int x = 0; x < pathWaypoints[path].Count(); x++)
             {
                 thisEnemy.AddWaypoint(pathWaypoints[path][x]);
@@ -114,6 +123,20 @@ namespace Asteroid_Belt_Assault
             Enemies.Add(thisEnemy);
         }
 
+        public void SpawnBossEnemy(int path)
+        {
+            Enemy thisEnemy = new Enemy(
+               texture,
+               pathWaypoints[path][0],
+               initialFrame,
+               frameCount);
+
+            for (int x = 0; x < pathWaypoints[path].Count(); x++)
+            {
+                thisEnemy.AddWaypoint(pathWaypoints[path][x]);
+            }
+            Enemies.Add(thisEnemy);
+        }
         public void SpawnWave(int waveType)
         {
             waveSpawns[waveType] +=

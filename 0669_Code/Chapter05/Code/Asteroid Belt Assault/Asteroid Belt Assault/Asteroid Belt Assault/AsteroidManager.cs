@@ -49,8 +49,9 @@ namespace Asteroid_Belt_Assault
             Asteroids.Clear();
         }
 
+        int asteroidCount = 6;
         public AsteroidManager(
-            int asteroidCount,
+            int number,
             Texture2D texture,
             Rectangle initialFrame,
             int asteroidFrames,    
