@@ -38,7 +38,7 @@ namespace Asteroid_Belt_Assault
                     if (asteroid.IsCircleColliding(enemy.EnemySprite.Center,
                         enemy.EnemySprite.CollisionRadius))
                     {
-                        enemyLife = enemyLife + 3;
+                        enemyLife += 3;
                         asteroid.Location = offScreen;
                         explosionManager.AddExplosion(
                                 enemy.EnemySprite.Center,

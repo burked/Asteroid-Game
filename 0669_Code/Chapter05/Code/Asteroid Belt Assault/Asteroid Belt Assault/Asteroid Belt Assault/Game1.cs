@@ -21,8 +21,7 @@ namespace Asteroid_Belt_Assault
 
         enum GameStates { TitleScreen, Playing, PlayerDead, GameOver };
         GameStates gameState = GameStates.TitleScreen;
-        Texture2D titleScreen;
-        Texture2D spriteSheet;
+        Texture2D titleScreen, spriteSheet, barBackground, barFill;
 
         StarField starField;
         AsteroidManager asteroidManager;
@@ -34,6 +33,9 @@ namespace Asteroid_Belt_Assault
 
         SpriteFont pericles14;
 
+        Sprite Bar;
+        List<Sprite> BarFilling = new List<Sprite>();
+
         private float playerDeathDelayTime = 10f;
         private float playerDeathTimer = 0f;
         private float titleScreenTimer = 0f;
@@ -44,6 +46,7 @@ namespace Asteroid_Belt_Assault
         private Vector2 scoreLocation = new Vector2(20, 10);
         private Vector2 livesLocation = new Vector2(20, 25);
 
+        float shotCooldownTimer = 3;
 
         public Game1()
         {
@@ -75,6 +78,11 @@ namespace Asteroid_Belt_Assault
 
             titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
+            barBackground = Content.Load<Texture2D>(@"Textures\Bar");
+            barFill = Content.Load<Texture2D>(@"Textures\BarFill3");
+
+            Bar = new Sprite(new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height - 40), barBackground, new Rectangle(0, 0, 600, 40), Vector2.Zero);
+            //BarFilling[0] = new Sprite(new Vector2(Window.ClientBounds.Width - 188, Window.ClientBounds.Height - 40), barFill, new Rectangle(0, 0, 2, 38), Vector2.Zero);
 
             starField = new StarField(
                 this.Window.ClientBounds.Width,
@@ -204,13 +212,9 @@ namespace Asteroid_Belt_Assault
                         enemyManager.Active = false;
                         playerManager.LivesRemaining--;
                         if (playerManager.LivesRemaining < 0)
-                        {
                             gameState = GameStates.GameOver;
-                        }
                         else
-                        {
                             gameState = GameStates.PlayerDead;
-                        }
                     }
 
                     break;
@@ -245,8 +249,9 @@ namespace Asteroid_Belt_Assault
                         gameState = GameStates.TitleScreen;
                     }
                     break;
-
             }
+
+            //BarFill.Location *= new Vector2(shotCooldownTimer, 1);
 
             base.Update(gameTime);
         }
@@ -279,6 +284,10 @@ namespace Asteroid_Belt_Assault
                 enemyManager.Draw(spriteBatch);
                 explosionManager.Draw(spriteBatch);
 
+                Bar.RelativeSize = 0.3f;
+                Bar.Draw(spriteBatch);
+                //BarFilling[0].Draw(spriteBatch);
+
                 spriteBatch.DrawString(
                     pericles14,
                     "Score: " + playerManager.PlayerScore.ToString(),
@@ -307,7 +316,6 @@ namespace Asteroid_Belt_Assault
                         50),
                     Color.White);
             }
-
 
             spriteBatch.End();
 

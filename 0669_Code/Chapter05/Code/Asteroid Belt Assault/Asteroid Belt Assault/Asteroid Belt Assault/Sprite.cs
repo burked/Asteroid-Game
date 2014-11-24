@@ -21,6 +21,7 @@ namespace Asteroid_Belt_Assault
         private Color tintColor = Color.White;
         private float rotation = 0.0f;
 
+        public float RelativeSize = 1;
         public int CollisionRadius = 0;
         public int BoundingXPadding = 0;
         public int BoundingYPadding = 0;
@@ -164,7 +165,7 @@ namespace Asteroid_Belt_Assault
                 tintColor,
                 rotation,
                 new Vector2(frameWidth / 2, frameHeight / 2),
-                1.0f,
+                RelativeSize,
                 SpriteEffects.None,
                 0.0f);
         }
