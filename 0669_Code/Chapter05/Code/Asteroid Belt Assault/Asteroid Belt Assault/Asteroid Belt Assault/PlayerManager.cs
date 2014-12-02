@@ -22,6 +22,7 @@ namespace Asteroid_Belt_Assault
         private float shotTimer = 0.0f;
         private float minShotTimer = 0.2f;
         private int playerRadius = 15;
+        new Vector2 location = Vector2.Zero;
         public ShotManager PlayerShotManager;
 
         public PlayerManager(
