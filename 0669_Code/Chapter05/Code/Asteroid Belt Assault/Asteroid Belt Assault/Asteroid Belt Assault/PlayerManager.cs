@@ -62,6 +62,7 @@ namespace Asteroid_Belt_Assault
                         initialFrame.Height));
             }
             playerSprite.CollisionRadius = playerRadius;
+
         }
 
         private void FireShot()

@@ -42,18 +42,23 @@ namespace Asteroid_Belt_Assault
 
             previousLocation = location;
             currentWaypoint = location;
-            PowerupSprite.CollisionRadius = powerupRadius;
+            int powerupRadius = PowerupSprite.CollisionRadius;
+            float powerupY = PowerupSprite.Location.Y;
+            float powerupX = PowerupSprite.Location.X;
+            float powerupCenterY = PowerupSprite.Center.Y;
+            float powerupCenterX = PowerupSprite.Center.X;
+            
+        {
+        }
         }
 
             
        
-        if()
-        {
-        }
+       
 
 
 
-            public bool IsActive()
+            public bool IsApplied()
             {
             if (Applied == true)
             {
@@ -65,8 +70,39 @@ namespace Asteroid_Belt_Assault
             return false;
             }
             return true;
-            
             }
+
+
+            public void Update(GameTime gameTime)
+            {
+                if (IsApplied())
+                {
+                    Vector2 heading = currentWaypoint - PowerupSprite.Location;
+                    if (heading != Vector2.Zero)
+                    {
+                        heading.Normalize();
+                    }
+                    heading *= speed;
+                    PowerupSprite.Velocity = heading;
+                    previousLocation = PowerupSprite.Location;
+                    PowerupSprite.Update(gameTime);
+                    PowerupSprite.Rotation =
+                        (float)Math.Atan2(
+                        PowerupSprite.Location.Y - previousLocation.Y,
+                        PowerupSprite.Location.X - previousLocation.X);
+
+                    
+                }
+            }
+
+            public void Draw(SpriteBatch spriteBatch)
+            {
+                if (IsApplied())
+                {
+                    PowerupSprite.Draw(spriteBatch);
+                }
+            }
+
      }
 
 }

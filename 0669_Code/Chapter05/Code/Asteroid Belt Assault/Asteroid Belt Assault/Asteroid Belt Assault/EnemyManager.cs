@@ -123,20 +123,7 @@ namespace Asteroid_Belt_Assault
             Enemies.Add(thisEnemy);
         }
 
-        public void SpawnBossEnemy(int path)
-        {
-            Enemy thisEnemy = new Enemy(
-               texture,
-               pathWaypoints[path][0],
-               initialFrame,
-               frameCount);
-
-            for (int x = 0; x < pathWaypoints[path].Count(); x++)
-            {
-                thisEnemy.AddWaypoint(pathWaypoints[path][x]);
-            }
-            Enemies.Add(thisEnemy);
-        }
+       
         public void SpawnWave(int waveType)
         {
             waveSpawns[waveType] +=
