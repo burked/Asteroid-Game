@@ -9,29 +9,31 @@ namespace Asteroid_Belt_Assault
 {
     class PowerupManager
     {
+        private Random rand = new Random((int)System.DateTime.UtcNow.Ticks);
         private Texture2D texture;
-        private Rectangle initialFrame;
+        private Rectangle screenBounds;
         private int frameCount;
-
-        
 
         public List<Powerup> Powerups = new List<Powerup>();
 
-        private EnemyManager enemyManager;
-        private PlayerManager playerManager;
-        private AsteroidManager asteroidManager;
-
-        private void checkShotToEnemyCollisions()
+        public PowerupManager(
+            Texture2D texture,
+            Rectangle screenBounds)
         {
-            foreach (Sprite shot in playerManager.PlayerShotManager.Shots)
-            {
-                foreach (Enemy enemy in enemyManager.Enemies)
-                {
-                    if (shot.IsCircleColliding(
-                        enemy.EnemySprite.Center,
-                        enemy.EnemySprite.CollisionRadius))
-                    {
-                        
+            // Add some powerups maybe?
+            this.texture = texture;
+            this.screenBounds = screenBounds;
+
+        }
+
+        public void Update(GameTime gameTime)
+        {
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+        }
+
 
     }
 }

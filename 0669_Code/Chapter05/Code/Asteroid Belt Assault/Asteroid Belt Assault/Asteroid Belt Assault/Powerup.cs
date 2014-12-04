@@ -48,8 +48,6 @@ namespace Asteroid_Belt_Assault
             float powerupCenterY = PowerupSprite.Center.Y;
             float powerupCenterX = PowerupSprite.Center.X;
             
-        {
-        }
         }
 
             
@@ -60,16 +58,16 @@ namespace Asteroid_Belt_Assault
 
             public bool IsApplied()
             {
-            if (Applied == true)
-            {
-                 return false;
-            }
+                if (Applied == true)
+                {
+                        return false;
+                }
 
-            if (PowerupSprite.Location.Y<=-15)
-            {
-            return false;
-            }
-            return true;
+                if (PowerupSprite.Location.Y<=-15)
+                {
+                return false;
+                }
+                return true;
             }
 
 

@@ -12,6 +12,8 @@ namespace Asteroid_Belt_Assault
         private PlayerManager playerManager;
         private EnemyManager enemyManager;
         private ExplosionManager explosionManager;
+        private PowerupManager powerupManager;
+
         private Vector2 offScreen = new Vector2(-500, -500);
         private Vector2 shotToAsteroidImpact = new Vector2(0, -20);
         private int enemyPointValue = 100;
@@ -21,7 +23,8 @@ namespace Asteroid_Belt_Assault
             AsteroidManager asteroidManager,
             PlayerManager playerManager,
             EnemyManager enemyManager,
-            ExplosionManager explosionManager)
+            ExplosionManager explosionManager,
+            PowerupManager powerupManager)
         {
             this.asteroidManager = asteroidManager;
             this.playerManager = playerManager;
