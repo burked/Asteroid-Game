@@ -75,3 +75,5 @@ C:\Users\Daniel\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid
 C:\Users\Daniel\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\obj\x86\Debug\Asteroid Belt Assault.pdb
 C:\Users\EAHSCS\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\Bar.xnb
 C:\Users\EAHSCS\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\BarFill3.xnb
+C:\Users\Daniel\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\Bar.xnb
+C:\Users\Daniel\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\BarFill3.xnb

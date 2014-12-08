@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Daniel\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\SpriteSheet.xnb</Output>
-      <Time>2014-11-23T12:32:44.7551759-05:00</Time>
+      <Time>2014-11-23T12:32:35.8561942-05:00</Time>
     </Item>
     <Item>
       <Source>Textures\TitleScreen.png</Source>
@@ -80,7 +80,25 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Daniel\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Fonts\Pericles14.xnb</Output>
-      <Time>2014-11-23T12:32:43.4743269-05:00</Time>
+      <Time>2014-12-08T01:38:35.8811919-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Bar.png</Source>
+      <Name>Textures\Bar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Daniel\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\Bar.xnb</Output>
+      <Time>2014-12-07T19:51:09.0524665-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\BarFill3.png</Source>
+      <Name>Textures\BarFill3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Daniel\Documents\GitHub\Asteroid-Game\0669_Code\Chapter05\Code\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\BarFill3.xnb</Output>
+      <Time>2014-12-07T19:51:09.1245143-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -9,10 +9,15 @@ namespace Asteroid_Belt_Assault
 {
     class PowerupManager
     {
-        private Random rand = new Random((int)System.DateTime.UtcNow.Ticks);
+
+
         private Texture2D texture;
         private Rectangle screenBounds;
+        private RandomManager random;
         private int frameCount;
+        private Enemy enemy;
+        private Powerup powerup;
+        private EnemyManager enemyManager;
 
         public List<Powerup> Powerups = new List<Powerup>();
 
@@ -20,7 +25,9 @@ namespace Asteroid_Belt_Assault
             Texture2D texture,
             Rectangle screenBounds)
         {
-            // Add some powerups maybe?
+            
+            int i = 0;
+            
             this.texture = texture;
             this.screenBounds = screenBounds;
 

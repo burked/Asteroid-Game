@@ -29,6 +29,7 @@ namespace Asteroid_Belt_Assault
         EnemyManager enemyManager;
         ExplosionManager explosionManager;
         PowerupManager powerupManager;
+        StarField2 starField2;
 
         CollisionManager collisionManager;
 
@@ -89,7 +90,15 @@ namespace Asteroid_Belt_Assault
                 this.Window.ClientBounds.Width,
                 this.Window.ClientBounds.Height,
                 200,
-                new Vector2(0, 30f),
+                new Vector2(0, 400f),
+                spriteSheet,
+                new Rectangle(0, 450, 2, 2));
+
+            starField2 = new StarField2(
+                this.Window.ClientBounds.Width,
+                this.Window.ClientBounds.Height,
+                200,
+                new Vector2(0, 325f),
                 spriteSheet,
                 new Rectangle(0, 450, 2, 2));
 
@@ -102,7 +111,7 @@ namespace Asteroid_Belt_Assault
                 this.Window.ClientBounds.Height);
 
             playerManager = new PlayerManager(
-                spriteSheet,    
+                spriteSheet,     
                 new Rectangle(0, 150, 50, 50),    
                 3,
                 new Rectangle(
@@ -124,8 +133,6 @@ namespace Asteroid_Belt_Assault
 
             powerupManager = new PowerupManager(
                 spriteSheet,
-                new Rectangle(1, 322, 26, 348),
-                1,
                 new Rectangle(
                     0,
                     0,
@@ -144,7 +151,8 @@ namespace Asteroid_Belt_Assault
                 asteroidManager,
                 playerManager,
                 enemyManager,
-                explosionManager);
+                explosionManager,
+                powerupManager);
 
             
 
@@ -215,6 +223,7 @@ namespace Asteroid_Belt_Assault
                 case GameStates.Playing:
 
                     starField.Update(gameTime);
+                    starField2.Update(gameTime);
                     asteroidManager.Update(gameTime);
                     playerManager.Update(gameTime);
                     enemyManager.Update(gameTime);
@@ -238,7 +247,7 @@ namespace Asteroid_Belt_Assault
                     playerDeathTimer +=
                         (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                    starField.Update(gameTime);
+                    
                     asteroidManager.Update(gameTime);
                     enemyManager.Update(gameTime);
                     playerManager.PlayerShotManager.Update(gameTime);
@@ -254,7 +263,7 @@ namespace Asteroid_Belt_Assault
                 case GameStates.GameOver:
                     playerDeathTimer +=
                         (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    starField.Update(gameTime);
+                    
                     asteroidManager.Update(gameTime);
                     enemyManager.Update(gameTime);
                     playerManager.PlayerShotManager.Update(gameTime);
@@ -266,7 +275,7 @@ namespace Asteroid_Belt_Assault
                     break;
             }
 
-            //BarFill.Location *= new Vector2(shotCooldownTimer, 1);
+            
 
             base.Update(gameTime);
         }
@@ -294,14 +303,13 @@ namespace Asteroid_Belt_Assault
                 (gameState == GameStates.GameOver))
             {
                 starField.Draw(spriteBatch);
+                starField2.Draw(spriteBatch);
                 asteroidManager.Draw(spriteBatch);
                 playerManager.Draw(spriteBatch);
                 enemyManager.Draw(spriteBatch);
                 explosionManager.Draw(spriteBatch);
 
-                Bar.RelativeSize = 0.3f;
-                Bar.Draw(spriteBatch);
-                //BarFilling[0].Draw(spriteBatch);
+                
 
                 spriteBatch.DrawString(
                     pericles14,
@@ -313,7 +321,7 @@ namespace Asteroid_Belt_Assault
                 {
                     spriteBatch.DrawString(
                         pericles14,
-                        "Ships Remaining: " +
+                        "Gabens Remaining: " +
                             playerManager.LivesRemaining.ToString(),
                         livesLocation,
                         Color.White);
@@ -324,7 +332,7 @@ namespace Asteroid_Belt_Assault
             {
                 spriteBatch.DrawString(
                     pericles14,
-                    "G A M E  O V E R !",
+                    "G A B E    O V E R !",
                     new Vector2(
                         this.Window.ClientBounds.Width / 2 -
                           pericles14.MeasureString("G A M E  O V E R !").X / 2,
